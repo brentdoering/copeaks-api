@@ -136,4 +136,18 @@ router.put('/:id', (req, res) => {
     res.json({ success: true, data: fourteener });
 });
 
+// Delete an entry
+router.delete('/:id', (req, res) => {
+    const fourteener = fourteeners.find((fourteener) => fourteener.id === +req.params.id);
+
+    if(!fourteener) {
+       return res.status(404).json({ success: false, error: 'Resource not found'})
+    }
+
+    const index = fourteeners.indexOf(fourteener)
+    fourteeners.splice(index, 1)
+
+    res.json({ success: true, data: {} });
+});
+
 module.exports = router;
