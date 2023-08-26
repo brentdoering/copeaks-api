@@ -1,0 +1,14 @@
+{
+  "name": "co-14ers-api",
+  "version": "1.0.0",
+  "description": "API for Colorado 14er's",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Brent Doering",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
