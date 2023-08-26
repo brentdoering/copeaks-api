@@ -116,9 +116,24 @@ router.post('/', (req, res) => {
         date: new Date().toISOString().slice(0, 10)
     }
 
-    console.log(fourteener)
+    fourteeners.push(fourteener)
 
-    res.send(req.body.mountainname)
-})
+    res.json({ success: true, data: fourteener })
+});
+
+// Update an entry
+router.put('/:id', (req, res) => {
+    const fourteener = fourteeners.find((fourteener) => fourteener.id === +req.params.id);
+
+    if(!fourteener) {
+       return res.status(404).json({ success: false, error: 'Resource not found'})
+    }
+
+    fourteener.mountainname = req.body.mountainname || fourteener.mountainname;
+    fourteener.mountainrangename = req.body.mountainrangename || fourteener.mountainname;
+
+
+    res.json({ success: true, data: fourteener });
+});
 
 module.exports = router;
