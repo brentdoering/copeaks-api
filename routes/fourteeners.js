@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Fourteener = require('../models/Fourteener')
 
 
 const fourteeners = [ 
@@ -91,8 +92,13 @@ const fourteeners = [
 ]
 
 // Get all entries 
-router.get('/', (req, res) => {
-    res.json({ success: true, data: fourteeners });
+router.get('/', async (req, res) => {
+    try {
+        const fourteeners = await Fourteener.find();
+        res.json({ success: true, data: fourteeners})
+    } catch (error) {
+        res.status(500).json({ success: false, error: 'Something went wrong...'})
+    }
 });
 
 // Get one entry

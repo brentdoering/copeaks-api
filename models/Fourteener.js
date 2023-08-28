@@ -11,7 +11,7 @@ const FourteenerSchema = new mongoose.Schema({
     },
     elevationft: {
         type: Number,
-        required: [true, 'Please add an elevation']
+        required: [true, 'Please add an elevation (above 14k ft)']
     },
     prominenceft: {
         type: Number,
