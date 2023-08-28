@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const fourteeners = [
+const fourteeners = [ 
     {
         "id": 1,
         "mountainname": "Mount Elbert",
